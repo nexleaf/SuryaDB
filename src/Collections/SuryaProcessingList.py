@@ -7,29 +7,27 @@ Created on Oct 29, 2010
 from mongoengine import *
 from SuryaUploadData import *
 from SuryaCalibrationData import *
-from SuryaProcessResult import *
 
-class SuryaConfiguration(EmbeddedDocument):
-    # A Reference to the Calibration Data
-    calibrationData = ReferenceField(SuryaCalibrationData, required=True)
-    
-    # A List of Results obtained for this configuration
-    resultList = ListField(EmbeddedDocumentField(SuryaResult))
-
-# TODO: InvalidReason per Epoch
 class SuryaProcessingList(Document):
     # The image/accoustic data to process
     processEntity = ReferenceField(SuryaUploadData, required=True)
     
+    # The status of the processing, i.e. is this item being processed currently
+    processingFlag = BooleanField(default=False, required=True)
+    
+class SuryaIANAProcessingList(SuryaProcessingList):
+    
     # A boolean field indicating if this image has been processed
     processedFlag = BooleanField(required=True)
     
-    # Current epoch
-    epoch = IntField(required=True)
+    # Override flag, indicating if results from preProcessing can override the current calibration config
+    overrideFlag = BooleanField(default=True, required=True)
     
-    # The results obtained after preprocessing the image/accoustic data
-    preProcessResultList = ListField(EmbeddedDocumentField(SuryaResult))
+    # The pre-processing configuration under which this item should be processed
+    preProcessingConfiguration = ReferenceField(SuryaCalibrationData, required=True)
     
-    # Its corresponding list of calibration configurations
-    configurations = ListField(EmbeddedDocumentField(SuryaConfiguration))
+    # The computation configuration under which BCVol must be computed
+    computationConfiguration = ReferenceField(SuryaCalibrationData, required=True)
     
+    # The BCStrip value with which to process this item
+    bcStrips = ReferenceField(SuryaCalibrationData, required=True)
