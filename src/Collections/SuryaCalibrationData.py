@@ -9,6 +9,11 @@ from mongoengine import *
 class SuryaCalibrationData(Document):
     # Primary Key for the SuryaCalibration Table
     calibrationId = IntField(primary_key = True)
+    
+    meta = {
+        'ordering': ['-calibrationId']
+    }
+
 
 ## THESE ARE THE CALIBRATION VALUES FOR IMAGE ANALYSIS ##
 class SuryaPump(Document):
