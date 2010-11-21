@@ -27,5 +27,5 @@ class SuryaGroundTruthSchema1(SuryaGroundTruth):
     red           = IntField(0,255, required=True)
     green         = IntField(0,255, required=True)
     blue          = IntField(0,255, required=True)
-    bcStrip       = ListField(ListField(FloatField(required=True),required=True),required=True)
+    bcStrip       = ListField(FloatField(required=True),required=True)
     
