@@ -9,6 +9,9 @@ from mongoengine import *
 class SuryaUploadData(Document):
     # A unique ID for a device
     deviceId = StringField(max_length=128, required=True)
+    
+    # filename
+    filename = StringField(required=True)
         
     # The file name of the picture    
     file = FileField()     

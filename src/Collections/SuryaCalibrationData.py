@@ -35,7 +35,7 @@ class SuryaImageAnalysisCalibrationData(SuryaCalibrationData):
 class SuryaImageAnalysisBCStripData(SuryaCalibrationData):
     
     # Provides 10 BC values on test strips
-    bcStrips = ListField(FloatField(required=True), required=True)
+    bcStrips = ListField(FloatField(required=True), required=True, unique=True)
 
 class SuryaImagePreProcessingCalibrationData(SuryaCalibrationData):
     
