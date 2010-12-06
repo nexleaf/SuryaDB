@@ -29,8 +29,7 @@ class SuryaUploadData(Document):
     misc = StringField()     
         
     # GPS info    
-    gpsLongitude = FloatField()
-    gpsLatitude = FloatField()    
+    gpsLatLong = GeoPointField()
     gpsAltitude = FloatField()         
                 
     # False if an uploading has been marked as invalid    
