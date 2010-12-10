@@ -13,8 +13,11 @@ class SuryaUploadData(Document):
     # filename
     filename = StringField(required=True)
         
-    # The file name of the picture    
+    # The working file we will adjust during processing
     file = FileField()     
+
+    # The original file, since we may transform the data during processing
+    origFile = FileField()
        
     # The data type / MIME type of the uploading file    
     datatype = StringField(max_length=128, required=True) 
