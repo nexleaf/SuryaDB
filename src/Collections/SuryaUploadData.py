@@ -19,9 +19,12 @@ class SuryaUploadData(Document):
     # The original file, since we may transform the data during processing
     origFile = FileField()
        
-    # The data type / MIME type of the uploading file    
+    # The descriptive data type (audio, log, compressed log, image)
     datatype = StringField(max_length=128, required=True) 
-        
+
+    # official MIME type of the uploading file
+    mimetype = StringField(max_length=128, required=True)
+    
     # The time that the server receives the uploading datetime.datetime instance
     serverDatetime = DateTimeField(required=True)
         
