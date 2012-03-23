@@ -23,8 +23,11 @@ class SuryaImageAnalysisCalibrationData(SuryaCalibrationData):
     # Air flow rate (liters / minute) 
     airFlowRate = FloatField(required=True)
     
-    # ExposedTime (minutes)
+    # ExposedTime
     exposedTime = FloatField(required=True)
+    
+    # Units of the ExposedTime (seconds, minutes, hours (decimals ok for all))
+    timeUnits = StringField()
     
     # Filter Radius
     filterRadius = FloatField(required=True)
