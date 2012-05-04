@@ -14,6 +14,8 @@ class SuryaProcessingList(Document):
     
     # The status of the processing, i.e. is this item being processed currently
     processingFlag = BooleanField(default=False, required=True)
+
+    meta = {'allow_inheritance': True}
     
 class SuryaIANAProcessingList(SuryaProcessingList):
     

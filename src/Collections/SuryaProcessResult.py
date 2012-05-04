@@ -10,6 +10,7 @@ from Collections.SuryaCalibrationData import SuryaImagePreProcessingCalibrationD
     SuryaImageAnalysisCalibrationData, SuryaImageAnalysisBCStripData
 
 class SuryaResult(Document):
+    meta = {'allow_inheritance': True}
     pass
 
 

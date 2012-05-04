@@ -9,6 +9,9 @@ from mongoengine import *
 
 class SuryaGroundTruth(Document):
     catalogNumber = StringField(max_length=50, required=True, unique=True)
+    
+    meta = {'allow_inheritance': True}
+
 
 # Schema No1
 class SuryaGroundTruthSchema1(SuryaGroundTruth):

@@ -10,6 +10,8 @@ class SuryaCalibrationData(Document):
     # Primary Key for the SuryaCalibration Table
     calibrationId = IntField(unique = True)
 
+    meta = {'allow_inheritance': True}
+
 ## THESE ARE THE CALIBRATION VALUES FOR IMAGE ANALYSIS ##
 class SuryaPump(Document):
     # Pump id
@@ -38,7 +40,7 @@ class SuryaImageAnalysisCalibrationData(SuryaCalibrationData):
 class SuryaImageAnalysisBCStripData(SuryaCalibrationData):
     
     # Provides 10 BC values on test strips
-    bcStrips = ListField(FloatField(required=True), required=True, unique=True)
+    bcStrips = ListField(FloatField(required=True), required=True)
 
 class SuryaImagePreProcessingCalibrationData(SuryaCalibrationData):
     
