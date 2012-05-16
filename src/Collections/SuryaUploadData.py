@@ -58,3 +58,11 @@ class SuryaUploadData(Document):
     
     # Deployment ID    
     deploymentId = StringField(max_length=128, required=True)
+    
+    # Tries to determine the success or failure of the processed upload.
+    def processing_success(self):
+        from Collections.SuryaProcessResult import *
+        if SuryaIANAResult.objects(item=self).count() == 1:
+            return True
+        return False
+
