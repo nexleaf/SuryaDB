@@ -15,10 +15,14 @@ class SuryaCalibrationData(Document):
 ## THESE ARE THE CALIBRATION VALUES FOR IMAGE ANALYSIS ##
 class SuryaPump(Document):
     # Pump id
-    PumpId = StringField(primary_key=True)
+    pumpId = StringField(required=True)
     
     # Air Flow rate (liters / minute)
     airFlowRate = FloatField(required=True)
+
+    # The time that this
+    setDatetime = DateTimeField(required=True)          
+
  
 class SuryaImageAnalysisCalibrationData(SuryaCalibrationData):
 
