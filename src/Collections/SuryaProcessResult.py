@@ -56,6 +56,9 @@ class SuryaImagePreProcessingResult(EmbeddedDocument):
     # The Sampled value
     sampled = ListField(FloatField(required=True))
     
+    # The sampled
+    gradient = ListField(ListField(FloatField(required=True)))
+
 class SuryaIANAResult(SuryaResult):
     # The upload data item corresponding to the result
     item = ReferenceField(SuryaUploadData, required=True)
