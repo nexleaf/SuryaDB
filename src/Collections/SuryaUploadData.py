@@ -72,5 +72,5 @@ class SuryaUploadData(Document):
         if res.count() >= 1:
             return "%.05f, %.05f" % (res[0].computationResult.result.BCAreaRed, res[0].computationResult.result.BCVolRed)
         else:
-            return " "
+            return ","
 
