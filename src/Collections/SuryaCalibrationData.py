@@ -41,6 +41,9 @@ class SuryaImageAnalysisCalibrationData(SuryaCalibrationData):
     # Area of the exposed image(cm^2) 
     bcArea = FloatField(required=True)
 
+    # Use the Fixed BC detector or not
+    bcDetectorType = StringField()
+
 class SuryaImageAnalysisBCStripData(SuryaCalibrationData):
     
     # Provides 10 BC values on test strips
@@ -67,5 +70,7 @@ class SuryaImagePreProcessingCalibrationData(SuryaCalibrationData):
     highThreshold = IntField(required=True)
     
     # Sampling factor
-    samplingFactor = IntField(required=True)
+    samplingFactor = FloatField(required=True)
     
+    # Sampling factor Fixed
+    samplingFactorFixed = FloatField(required=True)
